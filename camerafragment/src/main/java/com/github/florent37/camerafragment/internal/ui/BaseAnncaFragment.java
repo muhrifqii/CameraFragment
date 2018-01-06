@@ -91,13 +91,13 @@ public abstract class BaseAnncaFragment<CameraId> extends Fragment implements Ca
     };
     private CameraFragmentStateListener cameraFragmentStateListener;
     @Flash.FlashMode
-    private int currentFlashMode = Flash.FLASH_AUTO;
+    protected int currentFlashMode = Flash.FLASH_AUTO;
     @Camera.CameraType
-    private int currentCameraType = Camera.CAMERA_TYPE_REAR;
+    protected int currentCameraType = Camera.CAMERA_TYPE_REAR;
     @MediaAction.MediaActionState
-    private int currentMediaActionState = MediaAction.ACTION_PHOTO;
+    protected int currentMediaActionState = MediaAction.ACTION_PHOTO;
     @Record.RecordState
-    private int currentRecordState = Record.TAKE_PHOTO_STATE;
+    protected int currentRecordState = Record.TAKE_PHOTO_STATE;
     private String mediaFilePath;
     private FileObserver fileObserver;
     private long maxVideoFileSize = 0;
