@@ -373,14 +373,8 @@ public abstract class BaseAnncaFragment<CameraId> extends Fragment implements Ca
         builder.setPositiveButton(R.string.ok_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (newQuality > 0 && newQuality != configurationProvider.getMediaQuality()) {
-                    configurationProvider.setMediaQuality(newQuality);
-                    dialogInterface.dismiss();
-                    if (cameraFragmentControlsListener != null) {
-                        cameraFragmentControlsListener.lockControls();
-                    }
-                    cameraController.switchQuality();
-                }
+                dialogInterface.dismiss();
+                setMediaQuality(newQuality);
             }
         });
         builder.setNegativeButton(R.string.cancel_label, new DialogInterface.OnClickListener() {
@@ -396,6 +390,17 @@ public abstract class BaseAnncaFragment<CameraId> extends Fragment implements Ca
         layoutParams.width = Utils.convertDipToPixels(context, 350);
         layoutParams.height = Utils.convertDipToPixels(context, 350);
         settingsDialog.getWindow().setAttributes(layoutParams);
+    }
+
+    @Override
+    public void setMediaQuality(@Configuration.MediaQuality int newQuality){
+        if (newQuality > 0 && newQuality != configurationProvider.getMediaQuality()) {
+            configurationProvider.setMediaQuality(newQuality);
+            if (cameraFragmentControlsListener != null) {
+                cameraFragmentControlsListener.lockControls();
+            }
+            cameraController.switchQuality();
+        }
     }
 
     @Override

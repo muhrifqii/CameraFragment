@@ -2,6 +2,7 @@ package com.github.florent37.camerafragment;
 
 import android.support.annotation.Nullable;
 
+import com.github.florent37.camerafragment.configuration.Configuration;
 import com.github.florent37.camerafragment.listeners.CameraFragmentControlsListener;
 import com.github.florent37.camerafragment.listeners.CameraFragmentResultListener;
 import com.github.florent37.camerafragment.listeners.CameraFragmentStateListener;
@@ -16,6 +17,8 @@ public interface CameraFragmentApi {
     void takePhotoOrCaptureVideo(CameraFragmentResultListener resultListener, @Nullable String directoryPath, @Nullable String fileName);
 
     void openSettingDialog();
+
+    void setMediaQuality(@Configuration.MediaQuality int quality);
 
     void switchCameraTypeFrontBack();
 
