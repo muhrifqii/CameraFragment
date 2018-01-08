@@ -663,7 +663,8 @@ public abstract class BaseAnncaFragment<CameraId> extends Fragment implements Ca
         if (maxVideoFileSize > 0) {
 
             if (cameraFragmentVideoRecordTextListener != null) {
-                cameraFragmentVideoRecordTextListener.setRecordSizeText(maxVideoFileSize, "1Mb" + " / " + maxVideoFileSize / (1024 * 1024) + "Mb");
+                cameraFragmentVideoRecordTextListener.setRecordSizeText(0, "0Kb" + " / " + maxVideoFileSize / 1024 + "Kb");
+                //cameraFragmentVideoRecordTextListener.setRecordSizeText(0, "1Mb" + " / " + maxVideoFileSize / (1024 * 1024) + "Mb");
                 cameraFragmentVideoRecordTextListener.setRecordSizeTextVisible(true);
             }
             try {
@@ -672,17 +673,30 @@ public abstract class BaseAnncaFragment<CameraId> extends Fragment implements Ca
 
                     @Override
                     public void onEvent(int event, String path) {
-                        final long fileSize = mediaFile.length() / (1024 * 1024);
+                        //final long fileSize = mediaFile.length() / (1024 * 1024);
+                        final long fileSize = mediaFile.length() / 1024;
                         if ((fileSize - lastUpdateSize) >= 1) {
                             lastUpdateSize = fileSize;
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
                                     if (cameraFragmentVideoRecordTextListener != null) {
-                                        cameraFragmentVideoRecordTextListener.setRecordSizeText(maxVideoFileSize, fileSize + "Mb" + " / " + maxVideoFileSize / (1024 * 1024) + "Mb");
+                                        cameraFragmentVideoRecordTextListener.setRecordSizeText(fileSize, fileSize + "Kb" + " / " + maxVideoFileSize / 1024 + "Kb");
+                                        //cameraFragmentVideoRecordTextListener.setRecordSizeText(fileSize, fileSize + "Mb" + " / " + maxVideoFileSize / (1024 * 1024) + "Mb");
                                     }
                                 }
                             });
+                        }else if (fileSize >= maxVideoFileSize / 1024 - 850){
+                            Log.e("ancafragment","kepanggil___" + fileSize + "___" + lastUpdateSize);
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override public void run() {
+                                    if (cameraFragmentVideoRecordTextListener != null) {
+                                        cameraFragmentVideoRecordTextListener.setRecordSizeText(-1, fileSize +"Kb" + " / " + maxVideoFileSize / 1024 + "Kb");
+                                        cameraFragmentVideoRecordTextListener.setRecordSizeTextVisible(true);
+                                    }
+                                }
+                            });
+
                         }
                     }
                 };
