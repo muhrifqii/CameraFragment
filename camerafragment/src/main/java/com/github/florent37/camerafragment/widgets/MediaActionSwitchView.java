@@ -16,7 +16,7 @@ import com.github.florent37.camerafragment.internal.utils.Utils;
 /*
  * Created by memfis on 6/24/16.
  */
-public class MediaActionSwitchView extends ImageButton {
+public class MediaActionSwitchView extends android.support.v7.widget.AppCompatImageButton {
 
     @Nullable
     private OnMediaActionStateChangeListener onMediaActionStateChangeListener;
