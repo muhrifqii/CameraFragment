@@ -150,7 +150,7 @@ compile 'com.github.florent37:camerafragment:1.0.7'
 
 # Community
  
-Forked from [https://github.com/memfis19/Annca](https://github.com/memfis19/Annca)
+Forked name [https://github.com/memfis19/Annca](https://github.com/memfis19/Annca)
 
 # Credits
 
