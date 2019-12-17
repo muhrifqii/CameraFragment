@@ -1,6 +1,6 @@
 package com.github.florent37.camerafragment.internal.controller.view;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import com.github.florent37.camerafragment.configuration.Configuration;

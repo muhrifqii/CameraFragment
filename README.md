@@ -16,7 +16,7 @@ You can setup your own layout and control the camera using CameraFragment
 [![png](https://raw.githubusercontent.com/florent37/CameraFragment/master/media/sample.png)](https://github.com/florent37/CameraFragment)
 
 ```java
-//you can configure the fragment by the configuration builder
+//you can configure the fragment by the configuration messageBuilder
 CameraFragment cameraFragment = CameraFragment.newInstance(new Configuration.Builder().build());
 
 getSupportFragmentManager().beginTransaction()

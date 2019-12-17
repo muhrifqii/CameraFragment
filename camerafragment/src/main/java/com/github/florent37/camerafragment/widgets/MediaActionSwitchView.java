@@ -3,12 +3,11 @@ package com.github.florent37.camerafragment.widgets;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ImageButton;
 
 import com.github.florent37.camerafragment.R;
 import com.github.florent37.camerafragment.internal.utils.Utils;
@@ -16,7 +15,7 @@ import com.github.florent37.camerafragment.internal.utils.Utils;
 /*
  * Created by memfis on 6/24/16.
  */
-public class MediaActionSwitchView extends android.support.v7.widget.AppCompatImageButton {
+public class MediaActionSwitchView extends androidx.appcompat.widget.AppCompatImageButton {
 
     @Nullable
     private OnMediaActionStateChangeListener onMediaActionStateChangeListener;
